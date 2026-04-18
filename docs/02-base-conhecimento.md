@@ -2,54 +2,30 @@
 
 ## Dados Utilizados
 
-Descreva se usou os arquivos da pasta `data`, por exemplo:
-
-| Arquivo | Formato | Utilização no Agente |
-|---------|---------|---------------------|
-| `historico_atendimento.csv` | CSV | Contextualizar interações anteriores |
-| `perfil_investidor.json` | JSON | Personalizar recomendações |
-| `produtos_financeiros.json` | JSON | Sugerir produtos adequados ao perfil |
-| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente |
-
-> [!TIP]
-> **Quer um dataset mais robusto?** Você pode utilizar datasets públicos do [Hugging Face](https://huggingface.co/datasets) relacionados a finanças, desde que sejam adequados ao contexto do desafio.
-
----
-
-## Adaptações nos Dados
-
-> Você modificou ou expandiu os dados mockados? Descreva aqui.
-
-[Sua descrição aqui]
-
----
+Será utilizado o google maps para verificar possibilidades de chuva ou sol intenso e o próprio site do estabelecimento como fonte de dados para as vagas disponíveis
 
 ## Estratégia de Integração
 
 ### Como os dados são carregados?
-> Descreva como seu agente acessa a base de conhecimento.
 
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+Dante irá verificar o local onde o estabelecimento se encontra e verificar a previsão do clima do dia saber o melhor horário para ir até lá, de acordo com a agenda e quadro de horário do estabelecimento
 
 ### Como os dados são usados no prompt?
-> Os dados vão no system prompt? São consultados dinamicamente?
-
-[Sua descrição aqui]
 
 ---
 
-## Exemplo de Contexto Montado
+Serão acessados online no momento da solicitação do cliente
 
-> Mostre um exemplo de como os dados são formatados para o agente.
+> Mostre um exemplo de como será uma execução do agente.
 
 ```
-Dados do Cliente:
-- Nome: João Silva
-- Perfil: Moderado
-- Saldo disponível: R$ 5.000
+Cliente: Olá. Gostaria de saber qual o melhor horário disponível pra hoje na barbearia 2 irmãos.
 
-Últimas transações:
-- 01/11: Supermercado - R$ 450
-- 03/11: Streaming - R$ 55
+Dante: E aí! Beleza? Vou verificar isso agora para você. Só um momento.
+Dante: Para hoje (18/04/2026) a agenda está bem preenchida, mas ainda temos os seguintes horários disponíveis:
+Dante:---- Horários disponíveis Barbearia 2 Irmãos ----
+           11:00 - 15:45 - 17:00
+Dante: Segundo o google Clima, terá chance de chuva as durante toda a manhã e continuará nublado durante a tarde.
+Dante: Deseja que eu reserve qual horário ?
 ...
 ```

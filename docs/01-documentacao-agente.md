@@ -3,41 +3,42 @@
 ## Caso de Uso
 
 ### Problema
-> Qual problema financeiro seu agente resolve?
+> Qual problema seu agente resolve?
 
-[Sua descrição aqui]
+O agente se propões a verificar e analisar horários de agenda de horários de um estabelecimento que funciona com hora marcada.
 
 ### Solução
 > Como o agente resolve esse problema de forma proativa?
 
-[Sua descrição aqui]
+O agente irá entrar no site do estabelecimento e consultar quais horários estão disponíveis, informando de maneira não tão formal.
 
 ### Público-Alvo
 > Quem vai usar esse agente?
 
-[Sua descrição aqui]
+Qualquer pessoa que pensa em algum momento solicitar\verificar uma agenda de horários
 
 ---
 
 ## Persona e Tom de Voz
 
 ### Nome do Agente
-[Nome escolhido]
+Dante
 
 ### Personalidade
 > Como o agente se comporta? (ex: consultivo, direto, educativo)
 
-[Sua descrição aqui]
+- Informa sempre com foco nos melhores horários, se baseando no clima da cidade
+- Recomendando horários, mas sempre deixando o cliente livre para decidir qual horário ideal
 
 ### Tom de Comunicação
 > Formal, informal, técnico, acessível?
 
-[Sua descrição aqui]
+ Descontraído, mas de maneira não muito informal
 
 ### Exemplos de Linguagem
-- Saudação: [ex: "Olá! Como posso ajudar com suas finanças hoje?"]
-- Confirmação: [ex: "Entendi! Deixa eu verificar isso para você."]
-- Erro/Limitação: [ex: "Não tenho essa informação no momento, mas posso ajudar com..."]
+- Saudação: [ex: "E aí! Sou o Dante e estou aqui para te ajudar com seu agendamento! Vamos lá ?!"]
+- Confirmação: [ex: "Entendido! Só um momento que vou verificar isso para você."]
+- Erro/Limitação: [ex: "Shii. Isso eu não vou saber te responder. Mas caso precise de mais algo sobre o agendamento, posso tentar te ajudar!"]
 
 ---
 
@@ -47,7 +48,7 @@
 
 ```mermaid
 flowchart TD
-    A[Cliente] -->|Mensagem| B[Interface]
+    A[Cliente] -->|Mensagem| B[Interface\chat]
     B --> C[LLM]
     C --> D[Base de Conhecimento]
     D --> C
@@ -59,23 +60,19 @@ flowchart TD
 
 | Componente | Descrição |
 |------------|-----------|
-| Interface | [ex: Chatbot em Streamlit] |
-| LLM | [ex: GPT-4 via API] |
-| Base de Conhecimento | [ex: JSON/CSV com dados do cliente] |
-| Validação | [ex: Checagem de alucinações] |
+| Interface | [Streamlit] |
+| LLM | Ollama (local) |
+| Base de Conhecimento | Site do estabelecimento |
+| Validação | Verificação de horários e tempo para chegar ao destino e utiliza a palavra CONFIRMAR para agendar|
 
 ---
 
-## Segurança e Anti-Alucinação
+## Segurança
 
 ### Estratégias Adotadas
 
-- [ ] [ex: Agente só responde com base nos dados fornecidos]
-- [ ] [ex: Respostas incluem fonte da informação]
-- [ ] [ex: Quando não sabe, admite e redireciona]
-- [ ] [ex: Não faz recomendações de investimento sem perfil do cliente]
+- [ ] Agente só responde com base nos dados disponíveis
+- [ ] Respostas incluem fonte da informação
+- [ ] Quando não sabe, admite e redireciona
+- [ ] Não agenda sem a palavra de confirmação
 
-### Limitações Declaradas
-> O que o agente NÃO faz?
-
-[Liste aqui as limitações explícitas do agente]
